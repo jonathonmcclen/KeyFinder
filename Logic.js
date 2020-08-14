@@ -24,6 +24,17 @@ const A2Path = document.getElementById("A2");
 const A2SharpPath = document.getElementById("A2Sharp");
 const B2Path = document.getElementById("B2");
 
+//PIANO
+const piano = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+
+//Scales
+//1=half step 2=whole step 3=minor third
+const Maj = [2,2,1,2,2,2,1]
+const min = [2,1,2,2,1,2,2]
+const minHarmonic = [2,1,2,2,1,3,2]
+const blues = [3,2,1,1,3,2]
+
+//Whats in Key
 var C1 = false;
 	var C1Sharp = false;
 var D1 = false;
@@ -49,44 +60,45 @@ var A2 = false;
 	var A2Sharp = false;
 var B2 = false;
 
-var Key;
+
+var note;
+var key;
 
 
 function CheckKey () {
+	//Grab player input from dropdown menues
+	note = "blank"
+	key = "blank"
 	
-	var e = document.getElementById('Note1');
-	var note = e.options[e.selectedIndex].text;
-	var f = document.getElementById('Note2');
-	var type = f.options[f.selectedIndex].text;
-	var g = document.getElementById('Scale');
-	var scale = g.options[g.selectedIndex].text;
-	
-	Key = note + type;
-	console.log(Key)
-	
-	if(Key == "CMajor"){
-		CMaj();
-		Update();
-	} else if(Key == "DMajor"){
-	    DMaj();
-		Update();
-	} else if(Key == "EMaj"){
-	    EMaj();
-		Update();
-	} else if(Key == "FMaj"){
-	    FMaj();
-		Update();
-	} else if(Key == "GMaj"){
-	    GMaj();
-		Update();
-	} else if(Key == "AMaj"){
-	    AMaj();
-		Update();
-	} else if(Key == "BMaj"){
-	    BMaj();
-		Update();
-	}
 };
+
+function Reset() {
+	var C1 = false;
+	var C1Sharp = false;
+	var D1 = false;
+	var D1Sharp = false;
+	var E1 = false;
+	var F1 = false;
+	var F1Sharp = false;
+	var G1 = false;
+	var G1Sharp = false;
+	var A1 = false;
+	var A1Sharp = false;
+	var B1 = false;
+	var C2 = false;
+	var C2Sharp = false;
+	var D2 = false;
+	var D2Sharp = false;
+	var E2 = false;
+	var F2 = false;
+	var F2Sharp = false;
+	var G2 = false;
+	var G2Sharp = false;
+	var A2 = false;
+	var A2Sharp = false;
+	var B2 = false;
+};
+
 
 function Update () {
 	if(C1 == true){
@@ -161,232 +173,3 @@ function Update () {
 		
 	};
 };
-
-function CMaj(){
-	var C1 = true;
-		var C1Sharp = false;
-	var D1 = true;
-		var D1Sharp = false;
-	var E1 = true;
-	var F1 = true;
-		var F1Sharp = false;
-	var G1 = true;
-		var G1Sharp = false;
-	var A1 = true;
-		var A1Sharp = false;
-	var B1 = true;
-	var C2 = true;
-		var C2Sharp = false;
-	var D2 = true;
-		var D2Sharp = false;
-	var E2 = true;
-	var F2 = true;
-		var F2Sharp = false;
-	var G2 = true;
-		var G2Sharp = false;
-	var A2 = true;
-		var A2Sharp = false;
-	var B2 = true;
-};
-
-function GMaj(){
-	// 1 Sharp F
-	var C1 = true;
-		var C1Sharp = false;
-	var D1 = true;
-		var D1Sharp = false;
-	var E1 = true;
-	var F1 = false;
-		var F1Sharp = true;
-	var G1 = true;
-		var G1Sharp = false;
-	var A1 = true;
-		var A1Sharp = false;
-	var B1 = true;
-	var C2 = true;
-		var C2Sharp = false;
-	var D2 = true;
-		var D2Sharp = false;
-	var E2 = true;
-	var F2 = false;
-		var F2Sharp = true;
-	var G2 = true;
-		var G2Sharp = false;
-	var A2 = true;
-		var A2Sharp = false;
-	var B2 = true;
-};
-
-function DMaj(){
-	// 2 sharps F,C
-	
-	var C1 = false;
-		var C1Sharp = true;
-	var D1 = true;
-		var D1Sharp = false;
-	var E1 = true;
-	var F1 = false;
-		var F1Sharp = true;
-	var G1 = true;
-		var G1Sharp = false;
-	var A1 = true;
-		var A1Sharp = false;
-	var B1 = true;
-	var C2 = false;
-		var C2Sharp = true;
-	var D2 = true;
-		var D2Sharp = false;
-	var E2 = true;
-	var F2 = false;
-		var F2Sharp = true;
-	var G2 = true;
-		var G2Sharp = false;
-	var A2 = true;
-		var A2Sharp = false;
-	var B2 = true;
-};
-
-function AMaj(){
-	//3 Shraps F,C,G
-	
-	var C1 = false;
-	var C1Sharp = true;
-	var D1 = true;
-	var D1Sharp = false;
-	var E1 = true;
-	var F1 = false;
-	var F1Sharp = true;
-	var G1 = false;
-	var G1Sharp = true;
-	var A1 = true;
-	var A1Sharp = false;
-	var B1 = true;
-	var C2 = true;
-	var C2Sharp = false;
-	var D2 = true;
-	var D2Sharp = false;
-	var E2 = true;
-	var F2 = true;
-	var F2Sharp = false;
-	var G2 = true;
-	var G2Sharp = false;
-	var A2 = true;
-	var A2Sharp = false;
-	var B2 = true;
-};
-
-function EMaj(){
-	//4 Sharps F,C,G,D
-	
-	var C1 = false;
-	var C1Sharp = true;
-	var D1 = false;
-	var D1Sharp = true;
-	var E1 = true;
-	var F1 = false;
-	var F1Sharp = true;
-	var G1 = false;
-	var G1Sharp = true;
-	var A1 = true;
-	var A1Sharp = false;
-	var B1 = true;
-	var C2 = true;
-	var C2Sharp = false;
-	var D2 = true;
-	var D2Sharp = false;
-	var E2 = true;
-	var F2 = true;
-	var F2Sharp = false;
-	var G2 = true;
-	var G2Sharp = false;
-	var A2 = true;
-	var A2Sharp = false;
-	var B2 = true;
-};
-
-function BMaj(){
-	//5 Sharps F,C,G,D,A
-	
-	var C1 = false;
-		var C1Sharp = true;
-	var D1 = false;
-		var D1Sharp = true;
-	var E1 = true;
-	var F1 = false;
-		var F1Sharp = true;
-	var G1 = false;
-		var G1Sharp = true;
-	var A1 = false;
-		var A1Sharp = true;
-	var B1 = true;
-	var C2 = false;
-		var C2Sharp = true;
-	var D2 = false;
-		var D2Sharp = true;
-	var E2 = true;
-	var F2 = false;
-		var F2Sharp = true;
-	var G2 = false;
-		var G2Sharp = true;
-	var A2 = false;
-		var A2Sharp = true;
-	var B2 = true;
-};
-
-function BMaj(){
-	//5 Sharps F,C,G,D,A
-	
-	var C1 = false;
-		var C1Sharp = true;
-	var D1 = false;
-		var D1Sharp = true;
-	var E1 = true;
-	var F1 = false;
-		var F1Sharp = true;
-	var G1 = false;
-		var G1Sharp = true;
-	var A1 = false;
-		var A1Sharp = true;
-	var B1 = true;
-	var C2 = false;
-		var C2Sharp = true;
-	var D2 = false;
-		var D2Sharp = true;
-	var E2 = true;
-	var F2 = false;
-		var F2Sharp = true;
-	var G2 = false;
-		var G2Sharp = true;
-	var A2 = false;
-		var A2Sharp = true;
-	var B2 = true;
-};
-
-function AminHarmonic(){
-	//5 Sharps F,C,G,D,A
-	
-	var C1 = true;
-		var C1Sharp = false;
-	var D1 = true;
-		var D1Sharp = false;
-	var E1 = true;
-	var F1 = true;
-		var F1Sharp = false;
-	var G1 = false;
-		var G1Sharp = true;
-	var A1 = true;
-		var A1Sharp = false;
-	var B1 = true;
-	var C2 = true;
-		var C2Sharp = false;
-	var D2 = true;
-		var D2Sharp = false;
-	var E2 = true;
-	var F2 = true;
-		var F2Sharp = false;
-	var G2 = false;
-		var G2Sharp = true;
-	var A2 = true;
-		var A2Sharp = false;
-	var B2 = true;
-}
