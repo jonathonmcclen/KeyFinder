@@ -25,7 +25,9 @@ const A2SharpPath = document.getElementById("A2Sharp");
 const B2Path = document.getElementById("B2");
 
 //PIANO
-const piano = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+const piano = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+var pianoFromRoot = [];
+var inKey = [];
 
 //Scales
 //1=half step 2=whole step 3=minor third
@@ -60,16 +62,66 @@ var A2 = false;
 	var A2Sharp = false;
 var B2 = false;
 
+var note
+var root
 
-var note;
-var key;
+function CheckInput(){
+	console.log("function called successfuly");
+	var x = document.getElementById("note");
+	var i = x.selectedIndex;
+	note = x.options[i].text;
+	console.log(note);
+	if (note != "Select One"){
+		CheckKey();
+	}
+};
 
-
-function CheckKey () {
-	//Grab player input from dropdown menues
-	note = "blank"
-	key = "blank"
+function CheckKey() {
+	FindTheRoot();
+	SetUpTheRootPt1();
+	SetUpTheRootPt2();
+	listNotesFromRoot();
 	
+	
+};
+
+function listNotesFromRoot() {
+	console.log(pianoFromRoot[0] + " " + pianoFromRoot[1] + " " + pianoFromRoot[2] + " " + pianoFromRoot[3] + " " + pianoFromRoot[4] + " " + pianoFromRoot[5] + " " + pianoFromRoot[6] + " " + pianoFromRoot[7] + " " + pianoFromRoot[8] + " " + pianoFromRoot[9] + " " + pianoFromRoot[10] + " " + pianoFromRoot[11] )
+}
+	
+function FindTheRoot() {
+	for(b = 0; b < piano.length; b++){
+		if (piano[b] == note){
+			
+			root = b;
+			console.log("Root Note " + piano[b] + " Captured");
+			
+		}
+	}
+};
+	
+function SetUpTheRootPt1() {
+	var i = 0
+	
+	for(t = root; t < piano.length; t++){
+		pianoFromRoot[i] = piano[t];
+		console.log( pianoFromRoot[i] + " Added to PianoFromRoot");
+		i++
+	}
+} 	
+
+function SetUpTheRootPt2() {
+	
+	var i = 0;
+	var b = pianoFromRoot.length;
+	
+	
+	for(t = b; t < 12; t++){
+		console.log("Success");
+		pianoFromRoot[t] = piano[i];
+		console.log( pianoFromRoot[i] + " Added to PianoFromRoot");
+		i++;
+	}
 };
 
 function Reset() {
@@ -100,7 +152,7 @@ function Reset() {
 };
 
 
-function Update () {
+function UpdateVisuals () {
 	if(C1 == true){
 	
 	} else {

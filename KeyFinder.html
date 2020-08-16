@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -46,25 +46,24 @@
 <body>
 	<script type="text/javascript" src="Logic.js"></script>
 	<label for="cars">Choose Key:</label>
-
-	<select name="cars" id="Note1">
-		<option value="CMaj">C</option>
-		<option value="DMaj">D</option>
-		<option value="EMaj">E</option>
-		<option value="FMaj">F</option>
-		<option value="GMaj">G</option>
-		<option value="AMaj">A</option>
-		<option value="BMaj">B</option>
-	</select>
-	
+	<form>
+		<select name="cars" id="note" onchange="CheckInput()">
+			<option>Select One</option>
+			<option>C</option>
+			<option>D</option>
+			<option>E</option>
+			<option>F</option>
+			<option>G</option>
+			<option>A</option>
+			<option>B</option>
+		</select>
+	</form>
 	<select name="cars" id="Note2">
 		<option value="CMaj">Major</option>
 		<option value="DMaj">Minor</option>
 		<option value="DMaj">Minor Harmonic</option>
 		<option value="DMaj">Blues</option>
 	</select>
-	
-	<button type="button" onclick="CheckKey();">Show</button>
 	
 	<br /><p> </p>
 	
