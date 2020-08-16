@@ -13,23 +13,24 @@
 			
 		}
 		
-		.notes {
+		.piano-key {
 			margin: 0px;
 			padding: 0px;
 			display: inline-block;
 			height: 200px;
   			width: 30px;
 			text-align: center;
-		}
-		
-		.not{
-			background-color: antiquewhite;
+            background-color: antiquewhite;
 		}
 		
 		.sharp {
 			background-color: black;
 			color: white;
 			height: 100px;
+		}
+		
+		.grayed-out {
+			background-color: lightgray;
 		}
 		
 		.Hidden {
@@ -45,9 +46,9 @@
 
 <body>
 	<script type="text/javascript" src="Logic.js"></script>
-	<label for="cars">Choose Key:</label>
+	<label for="key-select">Choose Key:</label>
 	<form>
-		<select name="cars" id="note" onchange="CheckInput()">
+		<select name="key-select" id="key-select" onchange="updatePiano()">
 			<option>Select One</option>
 			<option>C</option>
 			<option>D</option>
@@ -58,41 +59,41 @@
 			<option>B</option>
 		</select>
 	</form>
-	<select name="cars" id="Note2">
-		<option value="CMaj">Major</option>
-		<option value="DMaj">Minor</option>
-		<option value="DMaj">Minor Harmonic</option>
-		<option value="DMaj">Blues</option>
+	<select name="scale-select" id="scale-select" onchange="updatePiano()">
+		<option value="major">Major</option>
+		<option value="minor">Minor</option>
+		<option value="minor-harmonic">Minor Harmonic</option>
+		<option value="blues">Blues</option>
 	</select>
 	
 	<br /><p> </p>
 	
 	
 	<div id="piano">
-		<div id="C1" class="notes not"><p class="Hidden label">C</p></div>
-		<div id="C1Sharp" class="notes sharp"><p class="Hidden label">C#</p></div>
-		<div id="D1" class="notes not"><p class="Hidden label">D</p></div>
-		<div id="D1Sharp" class="notes sharp"><p class="Hidden label">D#</p></div>
-		<div id="E1" class="notes not"><p class="Hidden label">E</p></div>
-		<div id="F1" class="notes not"><p class="Hidden label">F</p></div>
-		<div id="F1Sharp" class="notes sharp"><p class="Hidden label">F#</p></div>
-		<div id="G1" class="notes not"><p class="Hidden label">G</p></div>
-		<div id="G1Sharp" class="notes sharp"><p class="Hidden label">G#</p></div>
-		<div id="A1" class="notes not"><p class="Hidden label">A</p></div>
-		<div id="A1Sharp" class="notes sharp"><p class="Hidden label">A#</p></div>
-		<div id="B1" class="notes not"><p class="Hidden label">B</p></div>
-		<div id="C2" class="notes not"><p class="Hidden label">C</p></div>
-		<div id="C2Sharp" class="notes sharp"><p class="Hidden label">C#</p></div>
-		<div id="D2" class="notes not"><p class="Hidden label">D</p></div>
-		<div id="D2Sharp" class="notes sharp"><p class="Hidden label">D#</p></div>
-		<div id="E2" class="notes not"><p class="Hidden label">E</p></div>
-		<div id="F2" class="notes not"><p class="Hidden label">F</p></div>
-		<div id="F2Sharp" class="notes sharp"><p class="Hidden label">F#</p></div>
-		<div id="G2" class="notes not"><p class="Hidden label">G</p></div>
-		<div id="G2Sharp" class="notes sharp"><p class="Hidden label">G#</p></div>
-		<div id="A2" class="notes not"><p class="Hidden label">A</p></div>
-		<div id="A2Sharp" class="notes sharp"><p class="Hidden label">A#</p></div>
-		<div id="B2" class="notes not"><p class="Hidden label">B</p></div>
+		<div id="C1" class="piano-key"><p class="Hidden label">C</p></div>
+		<div id="C1Sharp" class="piano-key sharp"><p class="Hidden label">C#</p></div>
+		<div id="D1" class="piano-key"><p class="Hidden label">D</p></div>
+		<div id="D1Sharp" class="piano-key sharp"><p class="Hidden label">D#</p></div>
+		<div id="E1" class="piano-key"><p class="Hidden label">E</p></div>
+		<div id="F1" class="piano-key"><p class="Hidden label">F</p></div>
+		<div id="F1Sharp" class="piano-key sharp"><p class="Hidden label">F#</p></div>
+		<div id="G1" class="piano-key"><p class="Hidden label">G</p></div>
+		<div id="G1Sharp" class="piano-key sharp"><p class="Hidden label">G#</p></div>
+		<div id="A1" class="piano-key"><p class="Hidden label">A</p></div>
+		<div id="A1Sharp" class="piano-key sharp"><p class="Hidden label">A#</p></div>
+		<div id="B1" class="piano-key"><p class="Hidden label">B</p></div>
+		<div id="C2" class="piano-key"><p class="Hidden label">C</p></div>
+		<div id="C2Sharp" class="piano-key sharp"><p class="Hidden label">C#</p></div>
+		<div id="D2" class="piano-key"><p class="Hidden label">D</p></div>
+		<div id="D2Sharp" class="piano-key sharp"><p class="Hidden label">D#</p></div>
+		<div id="E2" class="piano-key"><p class="Hidden label">E</p></div>
+		<div id="F2" class="piano-key"><p class="Hidden label">F</p></div>
+		<div id="F2Sharp" class="piano-key sharp"><p class="Hidden label">F#</p></div>
+		<div id="G2" class="piano-key"><p class="Hidden label">G</p></div>
+		<div id="G2Sharp" class="piano-key sharp"><p class="Hidden label">G#</p></div>
+		<div id="A2" class="piano-key"><p class="Hidden label">A</p></div>
+		<div id="A2Sharp" class="piano-key sharp"><p class="Hidden label">A#</p></div>
+		<div id="B2" class="piano-key"><p class="Hidden label">B</p></div>
 	</div>
 	
 	
