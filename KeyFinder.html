@@ -13,37 +13,91 @@
 			
 		}
 		
-		.piano-key {
-			margin: 0px;
+		.white-key {
+            position: relative;
+            margin: 0px;
 			padding: 0px;
 			display: inline-block;
+            text-align: center;
 			height: 200px;
-  			width: 30px;
+  			width: 40px;
 			border: 1px solid #000000;
-			text-align: center;
             background-color:#FFFFFF;
 		}
 		
-		.sharp {
-			background-color: black;
-			color: white;
+		.black-key {
+            position: relative;
+            margin-right: 10px;
+			padding: 0px;
+			display: inline-block;
+            text-align: center;
 			height: 100px;
+  			width: 30px;
+			border: 1px solid #000000;
+			background-color: black;
 		}
 		
-		.grayed-out {
-			background-color: lightgray;
-			border: 1px solid lightgray;
-			color: white;
-		}
-		
-		.Hidden {
-			
+		.hidden {
+			visibility: hidden;
 		}
 		
 		.label {
 			position: relative;
 			top: 65%;
+            right: 4px;
+            z-index: 0;
 		}
+        
+        .x {
+            position: relative;
+			top: 65%;
+            z-index: 0;
+        
+            font-family: Arial;
+            font-weight: 600;
+            color: white;
+        }
+        
+        #piano {
+            position: relative;
+            height: 200px;
+            z-index: -2;
+        }
+        
+        #white-keys {
+            position: absolute;
+        }
+        
+        #black-keys {
+            position: absolute;
+            left: 27px;
+            top: 0px;
+        }
+        
+        .circle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        
+        .green-circle {
+            background-color: lawngreen;
+        }
+        
+        .grey-circle {
+            background-color: #bbb;
+        }
+    
+        .red-circle {
+            background-color: red;
+        }
+
+        
 	</style>
 </head>
 
@@ -73,40 +127,48 @@
 	
 	
 	<div id="piano">
-		<div id="C1" class="piano-key"><p class="Hidden label">C</p></div>
-		<div id="C1Sharp" class="piano-key sharp"><p class="Hidden label">C#</p></div>
-		<div id="D1" class="piano-key"><p class="Hidden label">D</p></div>
-		<div id="D1Sharp" class="piano-key sharp"><p class="Hidden label">D#</p></div>
-		<div id="E1" class="piano-key"><p class="Hidden label">E</p></div>
-		<div id="F1" class="piano-key"><p class="Hidden label">F</p></div>
-		<div id="F1Sharp" class="piano-key sharp"><p class="Hidden label">F#</p></div>
-		<div id="G1" class="piano-key"><p class="Hidden label">G</p></div>
-		<div id="G1Sharp" class="piano-key sharp"><p class="Hidden label">G#</p></div>
-		<div id="A1" class="piano-key"><p class="Hidden label">A</p></div>
-		<div id="A1Sharp" class="piano-key sharp"><p class="Hidden label">A#</p></div>
-		<div id="B1" class="piano-key"><p class="Hidden label">B</p></div>
-		<div id="C2" class="piano-key"><p class="Hidden label">C</p></div>
-		<div id="C2Sharp" class="piano-key sharp"><p class="Hidden label">C#</p></div>
-		<div id="D2" class="piano-key"><p class="Hidden label">D</p></div>
-		<div id="D2Sharp" class="piano-key sharp"><p class="Hidden label">D#</p></div>
-		<div id="E2" class="piano-key"><p class="Hidden label">E</p></div>
-		<div id="F2" class="piano-key"><p class="Hidden label">F</p></div>
-		<div id="F2Sharp" class="piano-key sharp"><p class="Hidden label">F#</p></div>
-		<div id="G2" class="piano-key"><p class="Hidden label">G</p></div>
-		<div id="G2Sharp" class="piano-key sharp"><p class="Hidden label">G#</p></div>
-		<div id="A2" class="piano-key"><p class="Hidden label">A</p></div>
-		<div id="A2Sharp" class="piano-key sharp"><p class="Hidden label">A#</p></div>
-		<div id="B2" class="piano-key"><p class="Hidden label">B</p></div>
+        <div id="white-keys">
+            <div id="C1" class="piano-key white-key"><p class="label">C</p></div><!--
+            --><div id="D1" class="piano-key white-key"><p class="label">D</p></div><!--
+            --><div id="E1" class="piano-key white-key"><p class="label">E</p></div><!--
+            --><div id="F1" class="piano-key white-key"><p class="label">F</p></div><!--
+            --><div id="G1" class="piano-key white-key"><p class="label">G</p></div><!--
+            --><div id="A1" class="piano-key white-key"><p class="label">A</p></div><!--
+            --><div id="B1" class="piano-key white-key"><p class="label">B</p></div><!--
+            --><div id="C2" class="piano-key white-key"><p class="label">C</p></div><!--
+            --><div id="D2" class="piano-key white-key"><p class="label">D</p></div><!--
+            --><div id="E2" class="piano-key white-key"><p class="label">E</p></div><!--
+            --><div id="F2" class="piano-key white-key"><p class="label">F</p></div><!--
+            --><div id="G2" class="piano-key white-key"><p class="label">G</p></div><!--
+            --><div id="A2" class="piano-key white-key"><p class="label">A</p></div><!--
+            --><div id="B2" class="piano-key white-key"><p class="label">B</p></div>
+        </div>
+        <div id="black-keys">
+            <div id="C1Sharp" class="piano-key black-key"><p class="label">C#</p></div><!--
+            --><div id="D1Sharp" class="piano-key black-key"><p class="label">D#</p></div><!--
+            --><div class="black-key hidden"><p class="label"></p></div><!--
+            --><div id="F1Sharp" class="piano-key black-key"><p class="label">F#</p></div><!--
+            --><div id="G1Sharp" class="piano-key black-key"><p class="label">G#</p></div><!--
+            --><div id="A1Sharp" class="piano-key black-key"><p class="label">A#</p></div><!--
+            --><div class="black-key hidden"><p class="label"></p></div><!--
+            --><div id="C2Sharp" class="piano-key black-key"><p class="label">C#</p></div><!--
+            --><div id="D2Sharp" class="piano-key black-key"><p class="label">D#</p></div><!--
+            --><div class="black-key hidden"><p class="label"></p></div><!--
+            --><div id="F2Sharp" class="piano-key black-key"><p class="label">F#</p></div><!--
+            --><div id="G2Sharp" class="piano-key black-key"><p class="label">G#</p></div><!--
+            --><div id="A2Sharp" class="piano-key black-key"><p class="label">A#</p></div>
+        </div>
+		
 	</div>
 	<div id="ChordList">
 		<ol>
-			<li id="1"></li>
-			<li id="2"></li>
-			<li id="3"></li>
-			<li id="4"></li>
-			<li id="5"></li>
-			<li id="6"></li>
-			<li id="7"></li>
+			<li id="chord1"></li>
+			<li id="chord2"></li>
+			<li id="chord3"></li>
+			<li id="chord4"></li>
+			<li id="chord5"></li>
+			<li id="chord6"></li>
+			<li id="chord7"></li>
 		</ol>
 	</div>
 	
