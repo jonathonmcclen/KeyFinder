@@ -40,6 +40,10 @@
 			background-color: black;
 		}
 		
+        .pressed-key {
+            background-color: grey;
+        }
+        
 		.hidden {
 			visibility: hidden;
 		}
@@ -64,7 +68,6 @@
         #piano {
             position: relative;
             height: 200px;
-            z-index: -2;
         }
         
         #white-keys {
@@ -102,7 +105,98 @@
         }
 
         
+        #ChordList {
+            margin-top: 40px;
+        }
+        
+        .chord-div {
+            margin-right: 10px;
+            padding: 5px;
+            border: 3px solid white;
+            display: inline-block;
+            min-width: 45px;
+        }
+        
+        .chord-p {
+            margin: 0px;
+            display: block;
+        }
+        
 	</style>
+    
+    <audio id="C1-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="C1Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="D1-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="D1Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="E1-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="F1-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="F1Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="G1-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="G1Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="A1-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="A1Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="B1-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="C2-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="C2Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="D2-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="D2Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="E2-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="F2-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="F2Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="G2-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="G2Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="A2-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="A2Sharp-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    <audio id="B2-audio">
+        <source src="placeholder.mp3" type="audio/mp3">
+    </audio>
+    
 </head>
 
 <body>
@@ -170,16 +264,14 @@
 		
 	</div>
 	<div id="ChordList">
-		<ol>
-			<li id="chord1"></li>
-			<li id="chord2"></li>
-			<li id="chord3"></li>
-			<li id="chord4"></li>
-			<li id="chord5"></li>
-			<li id="chord6"></li>
-			<li id="chord7"></li>
-		</ol>
-	</div>
+        <div class="chord-div"><p class="chord-p">1.</p><p class="chord-p" id="chord1"></p></div>
+        <div class="chord-div"><p class="chord-p">2.</p><p class="chord-p" id="chord2"></p></div>
+        <div class="chord-div"><p class="chord-p">3.</p><p class="chord-p" id="chord3"></p></div>
+        <div class="chord-div"><p class="chord-p">4.</p><p class="chord-p" id="chord4"></p></div>
+        <div class="chord-div"><p class="chord-p">5.</p><p class="chord-p" id="chord5"></p></div>
+        <div class="chord-div"><p class="chord-p">6.</p><p class="chord-p" id="chord6"></p></div>
+        <div class="chord-div"><p class="chord-p">7.</p><p class="chord-p" id="chord7"></p></div>
+    </div>
 	
 	
 </body>

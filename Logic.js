@@ -69,11 +69,14 @@ function updatePiano() {
 function updateChordList(notesInScale, scaleType) {
     let major_order = ['maj', 'min', 'min', 'maj', 'maj', 'min', 'dim'];
     let minor_order = ['min', 'dim', 'maj', 'min', 'min', 'maj', 'maj'];
+    let minor_harmonic_order = ['min', 'dim', 'aug', 'min', 'maj', 'maj', 'dim'];
     
     if (scaleType == 'major')
         var order = major_order;
     else if (scaleType == 'minor')
         var order = minor_order;
+    else if (scaleType == 'minor-harmonic')
+        var order = minor_harmonic_order;
     else return;
 
     for (let i = 1; i < 8; i++) {
@@ -82,8 +85,22 @@ function updateChordList(notesInScale, scaleType) {
     
 }
 
+function createListeners() {
+    for (let piano_key of document.querySelectorAll('.piano-key')) {
+        piano_key.onmousedown = function() {
+            document.getElementById(piano_key.id + '-audio').play();
+            if (!piano_key.className.includes('pressed-key'))
+                piano_key.className += ' pressed-key';
+        }
+        piano_key.onmouseup = function() {
+            piano_key.className = piano_key.className.replace(' pressed-key', '');
+        }
+    }
+}
+
 
 window.onload = function() {
     getPianoKeyElements();
     addInitialGreyOut();
+    createListeners();
 }
