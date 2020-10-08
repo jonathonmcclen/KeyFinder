@@ -1,6 +1,7 @@
 var pianoKeyElements;
 var originalHTML;
 var noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+var keyNames = ['C1', 'C1Sharp', 'D1', 'D1Sharp', 'E1', 'F1', 'F1Sharp', 'G1', 'G1Sharp', 'A1', 'A1Sharp', 'B1', 'C2', 'C2Sharp', 'D2', 'D2Sharp', 'E2', 'F2', 'F2Sharp', 'G2', 'G2Sharp', 'A2', 'A2Sharp', 'B2']
 
 
 function getPianoKeyElements() {
@@ -164,44 +165,53 @@ function playChord(chordID, chordNum=1, ms=1000) {
     notesInChord.push(noteNames[currentIndex % 12]);
     
     
-    for (let i = 0; i < notesInChord.length; i++) {
-        
-        notesInChord[i] = notesInChord[i][0] + chordNum + notesInChord[i].substr(1).replace('#', 'Sharp')
-        
-        if (notesInChord[i] == 'B1') 
-            chordNum = '2';
-        else if (notesInChord[i] == 'C1' && i != 0) {
-            notesInChord[i] = 'C2';
-            chordNum = '2';
+    let keysInChord = [];
+    
+    let current_key_index = keyNames.indexOf(notesInChord[0][0] + '1' + notesInChord[0].replace('#', 'Sharp').substr(1));
+    keysInChord.push(keyNames[current_key_index]);
+    
+    for (let i = 1; i < notesInChord.length; i++) {
+        let note = notesInChord[i]
+        for (let j = current_key_index + 1; j < keyNames.length; j++) {
+            let key = keyNames[j];
+            if (key[0] == note[0] && (note.length == 1 || key[2] == 'S')) { //match note name to key name
+                keysInChord.push(key);
+                current_key_index = j;
+                break;
+            }
         }
     }
     
-    for (let note of notesInChord) {
-        playNote(note, ms);
+    for (let key of keysInChord) {
+        playNote(key, ms);
     }
     
 }
 
 function playScale(notesInScale, scaleType, ms) {
     
-    let num_append = '1';
-    for (let i = 0; i < notesInScale.length; i++) {
-        
-        notesInScale[i] = notesInScale[i][0] + num_append + notesInScale[i].substr(1).replace('#', 'Sharp')
-        
-        if (notesInScale[i] == 'B1') 
-            num_append = '2';
-        else if (notesInScale[i] == 'C1' && i != 0) {
-            notesInScale[i] = 'C2';
-            num_append = '2';
+    let keysInScale = [];
+    
+    let current_key_index = keyNames.indexOf(notesInScale[0][0] + '1' + notesInScale[0].replace('#', 'Sharp').substr(1));
+    keysInScale.push(keyNames[current_key_index]);
+    
+    for (let i = 1; i < notesInScale.length; i++) {
+        let note = notesInScale[i]
+        for (let j = current_key_index + 1; j < keyNames.length; j++) {
+            let key = keyNames[j];
+            if (key[0] == note[0] && (note.length == 1 || key[2] == 'S')) { //match note name to key name
+                keysInScale.push(key);
+                current_key_index = j;
+                break;
+            }
         }
     }
     
-    if (scaleType != 'blues')
-        notesInScale.push(notesInScale[0].replace('1', '2'));
+    if (scaleType != "blues")
+        keysInScale.push(keysInScale[0].replace('1', '2'));
     
-    for (let i = 0; i < notesInScale.length; i++) {
-        setTimeout(() => playNote(notesInScale[i], ms), ms * i + 50 * i);
+    for (let i = 0; i < keysInScale.length; i++) {
+        setTimeout(() => playNote(keysInScale[i], ms), ms * i + 50 * i);
     }
     
 }
