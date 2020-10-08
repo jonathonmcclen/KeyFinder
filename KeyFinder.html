@@ -53,6 +53,15 @@
 			top: 65%;
             right: 4px;
             z-index: 0;
+            
+
+            -webkit-user-select: none; /* Safari */
+             -khtml-user-select: none; /* Konqueror HTML */
+               -moz-user-select: none; /* Old versions of Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                          supported by Chrome, Edge, Opera and Firefox */
+
 		}
         
         .x {
@@ -68,6 +77,7 @@
         #piano {
             position: relative;
             height: 200px;
+            cursor: pointer;
         }
         
         #white-keys {
@@ -115,6 +125,7 @@
             border: 3px solid white;
             display: inline-block;
             min-width: 45px;
+            cursor: pointer;
         }
         
         .chord-p {
@@ -225,6 +236,9 @@
 		<option value="minor-harmonic">Minor Harmonic</option>
 		<option value="blues">Blues</option>
 	</select>
+    
+    <button id="play-scale-button" style="margin-left: 20px">Play Scale</button>
+        
 	</form>
 	<br /><p> </p>
 	
