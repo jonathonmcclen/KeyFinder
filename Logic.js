@@ -101,7 +101,12 @@ function createListeners() {
                 audio.pause();
                 audio.currentTime = 0;
             }
-            document.getElementById(piano_key.id + '-audio').play();
+            try {
+                document.getElementById(piano_key.id + '-audio').play();
+            }
+            catch (e) {
+                
+            }
             if (!piano_key.className.includes('pressed-key'))
                 piano_key.className += ' pressed-key';
         }
