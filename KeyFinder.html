@@ -5,7 +5,10 @@
 <title>Untitled Document</title>
 	<!--<link rel="stylesheet" href="css/StoneAndIron.css">-->
 	<style>
-		
+		body {
+			background-color: #282828;
+			color: #fff;
+		}
 		p {
 			margin: 10px;
 			padding: 0px;
@@ -13,87 +16,289 @@
 			
 		}
 		
-		.notes {
-			margin: 0px;
+		.white-key {
+            position: relative;
+            margin: 0px;
 			padding: 0px;
 			display: inline-block;
+            text-align: center;
 			height: 200px;
-  			width: 30px;
-			text-align: center;
+  			width: 40px;
+			border: 1px solid #000000;
+            background-color:#FFFFFF;
 		}
 		
-		.not{
-			background-color: antiquewhite;
-		}
-		
-		.sharp {
-			background-color: black;
-			color: white;
+		.black-key {
+            position: relative;
+            margin-right: 10px;
+			padding: 0px;
+			display: inline-block;
+            text-align: center;
 			height: 100px;
+  			width: 30px;
+			border: 1px solid #000000;
+			background-color: black;
 		}
 		
-		.Hidden {
-			
+        .pressed-key {
+            background-color: grey;
+        }
+        
+		.hidden {
+			visibility: hidden;
 		}
 		
 		.label {
 			position: relative;
 			top: 65%;
+            right: 4px;
+            z-index: 0;
+            
+            -webkit-user-select: none; /* Safari */
+             -khtml-user-select: none; /* Konqueror HTML */
+               -moz-user-select: none; /* Old versions of Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                          supported by Chrome, Edge, Opera and Firefox */
+
 		}
+        
+        .x {
+            position: relative;
+			top: 65%;
+            z-index: 0;
+        
+            font-family: Arial;
+            font-weight: 600;
+            color: white;
+            
+            -webkit-user-select: none; /* Safari */
+             -khtml-user-select: none; /* Konqueror HTML */
+               -moz-user-select: none; /* Old versions of Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                          supported by Chrome, Edge, Opera and Firefox */
+        }
+        
+        #piano {
+            position: relative;
+            height: 200px;
+            cursor: pointer;
+        }
+        
+        #white-keys {
+            position: absolute;
+        }
+        
+        #black-keys {
+            position: absolute;
+            left: 27px;
+            top: 0px;
+        }
+        
+        .circle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        
+        .green-circle {
+            background-color: lawngreen;
+			color: #000;
+        }
+        
+        .grey-circle {
+            background-color: #bbb;
+        }
+    
+        .red-circle {
+            background-color: red;
+        }
+
+        
+        #ChordList {
+            margin-top: 40px;
+            
+            -webkit-user-select: none; /* Safari */
+             -khtml-user-select: none; /* Konqueror HTML */
+               -moz-user-select: none; /* Old versions of Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                          supported by Chrome, Edge, Opera and Firefox */
+        }
+        
+        .chord-div {
+            margin-right: 10px;
+            padding: 5px;
+            border: 3px solid white;
+            display: inline-block;
+            min-width: 45px;
+            cursor: pointer;
+        }
+        
+        .chord-p {
+            margin: 0px;
+            display: block;
+        }
+        
 	</style>
+    
+    <audio id="C1-audio">
+        <source src="Notes/C1.wav" type="audio/wav">
+    </audio>
+    <audio id="C1Sharp-audio">
+        <source src="Notes/C1sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="D1-audio">
+        <source src="Notes/D1.wav" type="audio/wav">
+    </audio>
+    <audio id="D1Sharp-audio">
+        <source src="Notes/D1sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="E1-audio">
+        <source src="Notes/E1.wav" type="audio/wav">
+    </audio>
+    <audio id="F1-audio">
+        <source src="Notes/F1.wav" type="audio/wav">
+    </audio>
+    <audio id="F1Sharp-audio">
+        <source src="Notes/F1sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="G1-audio">
+        <source src="Notes/G1.wav" type="audio/wav">
+    </audio>
+    <audio id="G1Sharp-audio">
+        <source src="Notes/G1sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="A1-audio">
+        <source src="Notes/A1.wav" type="audio/wav">
+    </audio>
+    <audio id="A1Sharp-audio">
+        <source src="Notes/A1sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="B1-audio">
+        <source src="Notes/B1.wav" type="audio/wav">
+    </audio>
+    <audio id="C2-audio">
+        <source src="Notes/C2.wav" type="audio/wav">
+    </audio>
+    <audio id="C2Sharp-audio">
+        <source src="Notes/C2sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="D2-audio">
+        <source src="Notes/D2.wav" type="audio/wav">
+    </audio>
+    <audio id="D2Sharp-audio">
+        <source src="Notes/D2sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="E2-audio">
+        <source src="Notes/E2.wav" type="audio/wav">
+    </audio>
+    <audio id="F2-audio">
+        <source src="Notes/F2.wav" type="audio/wav">
+    </audio>
+    <audio id="F2Sharp-audio">
+        <source src="Notes/F2sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="G2-audio">
+        <source src="Notes/G2.wav" type="audio/wav">
+    </audio>
+    <audio id="G2Sharp-audio">
+        <source src="Notes/G2sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="A2-audio">
+        <source src="Notes/A2.wav" type="audio/wav">
+    </audio>
+    <audio id="A2Sharp-audio">
+        <source src="Notes/A2sharp.wav" type="audio/wav">
+    </audio>
+    <audio id="B2-audio">
+        <source src="Notes/B2.wav" type="audio/wav">
+    </audio>
+    
 </head>
 
 <body>
 	<script type="text/javascript" src="Logic.js"></script>
-	<label for="cars">Choose Key:</label>
+	<label for="key-select">Choose Key:</label>
 	<form>
-		<select name="cars" id="note" onchange="CheckInput()">
+		<select name="key-select" id="key-select" onchange="updatePiano()">
 			<option>Select One</option>
 			<option>C</option>
+			<option>C#</option>
 			<option>D</option>
+			<option>D#</option>
 			<option>E</option>
 			<option>F</option>
+			<option>F#</option>
 			<option>G</option>
+			<option>G#</option>
 			<option>A</option>
+			<option>A#</option>
 			<option>B</option>
 		</select>
-	</form>
-	<select name="cars" id="Note2">
-		<option value="CMaj">Major</option>
-		<option value="DMaj">Minor</option>
-		<option value="DMaj">Minor Harmonic</option>
-		<option value="DMaj">Blues</option>
-	</select>
 	
+	<select name="scale-select" id="scale-select" onchange="updatePiano()">
+		<option value="major">Major</option>
+		<option value="minor">Minor</option>
+		<option value="minor-harmonic">Minor Harmonic</option>
+		<option value="blues">Blues</option>
+	</select>
+    
+    <button id="play-scale-button" style="margin-left: 20px">Play Scale</button>
+        
+	</form>
 	<br /><p> </p>
 	
 	
 	<div id="piano">
-		<div id="C1" class="notes not"><p class="Hidden label">C</p></div>
-		<div id="C1Sharp" class="notes sharp"><p class="Hidden label">C#</p></div>
-		<div id="D1" class="notes not"><p class="Hidden label">D</p></div>
-		<div id="D1Sharp" class="notes sharp"><p class="Hidden label">D#</p></div>
-		<div id="E1" class="notes not"><p class="Hidden label">E</p></div>
-		<div id="F1" class="notes not"><p class="Hidden label">F</p></div>
-		<div id="F1Sharp" class="notes sharp"><p class="Hidden label">F#</p></div>
-		<div id="G1" class="notes not"><p class="Hidden label">G</p></div>
-		<div id="G1Sharp" class="notes sharp"><p class="Hidden label">G#</p></div>
-		<div id="A1" class="notes not"><p class="Hidden label">A</p></div>
-		<div id="A1Sharp" class="notes sharp"><p class="Hidden label">A#</p></div>
-		<div id="B1" class="notes not"><p class="Hidden label">B</p></div>
-		<div id="C2" class="notes not"><p class="Hidden label">C</p></div>
-		<div id="C2Sharp" class="notes sharp"><p class="Hidden label">C#</p></div>
-		<div id="D2" class="notes not"><p class="Hidden label">D</p></div>
-		<div id="D2Sharp" class="notes sharp"><p class="Hidden label">D#</p></div>
-		<div id="E2" class="notes not"><p class="Hidden label">E</p></div>
-		<div id="F2" class="notes not"><p class="Hidden label">F</p></div>
-		<div id="F2Sharp" class="notes sharp"><p class="Hidden label">F#</p></div>
-		<div id="G2" class="notes not"><p class="Hidden label">G</p></div>
-		<div id="G2Sharp" class="notes sharp"><p class="Hidden label">G#</p></div>
-		<div id="A2" class="notes not"><p class="Hidden label">A</p></div>
-		<div id="A2Sharp" class="notes sharp"><p class="Hidden label">A#</p></div>
-		<div id="B2" class="notes not"><p class="Hidden label">B</p></div>
+        <div id="white-keys">
+            <div id="C1" class="piano-key white-key"><p class="label">C</p></div><!--
+            --><div id="D1" class="piano-key white-key"><p class="label">D</p></div><!--
+            --><div id="E1" class="piano-key white-key"><p class="label">E</p></div><!--
+            --><div id="F1" class="piano-key white-key"><p class="label">F</p></div><!--
+            --><div id="G1" class="piano-key white-key"><p class="label">G</p></div><!--
+            --><div id="A1" class="piano-key white-key"><p class="label">A</p></div><!--
+            --><div id="B1" class="piano-key white-key"><p class="label">B</p></div><!--
+            --><div id="C2" class="piano-key white-key"><p class="label">C</p></div><!--
+            --><div id="D2" class="piano-key white-key"><p class="label">D</p></div><!--
+            --><div id="E2" class="piano-key white-key"><p class="label">E</p></div><!--
+            --><div id="F2" class="piano-key white-key"><p class="label">F</p></div><!--
+            --><div id="G2" class="piano-key white-key"><p class="label">G</p></div><!--
+            --><div id="A2" class="piano-key white-key"><p class="label">A</p></div><!--
+            --><div id="B2" class="piano-key white-key"><p class="label">B</p></div>
+        </div>
+        <div id="black-keys">
+            <div id="C1Sharp" class="piano-key black-key"><p class="label">C#</p></div><!--
+            --><div id="D1Sharp" class="piano-key black-key"><p class="label">D#</p></div><!--
+            --><div class="black-key hidden"><p class="label"></p></div><!--
+            --><div id="F1Sharp" class="piano-key black-key"><p class="label">F#</p></div><!--
+            --><div id="G1Sharp" class="piano-key black-key"><p class="label">G#</p></div><!--
+            --><div id="A1Sharp" class="piano-key black-key"><p class="label">A#</p></div><!--
+            --><div class="black-key hidden"><p class="label"></p></div><!--
+            --><div id="C2Sharp" class="piano-key black-key"><p class="label">C#</p></div><!--
+            --><div id="D2Sharp" class="piano-key black-key"><p class="label">D#</p></div><!--
+            --><div class="black-key hidden"><p class="label"></p></div><!--
+            --><div id="F2Sharp" class="piano-key black-key"><p class="label">F#</p></div><!--
+            --><div id="G2Sharp" class="piano-key black-key"><p class="label">G#</p></div><!--
+            --><div id="A2Sharp" class="piano-key black-key"><p class="label">A#</p></div>
+        </div>
+		
 	</div>
+	<div id="ChordList">
+        <div class="chord-div"><p class="chord-p">1.</p><p class="chord-p" id="chord1"></p></div>
+        <div class="chord-div"><p class="chord-p">2.</p><p class="chord-p" id="chord2"></p></div>
+        <div class="chord-div"><p class="chord-p">3.</p><p class="chord-p" id="chord3"></p></div>
+        <div class="chord-div"><p class="chord-p">4.</p><p class="chord-p" id="chord4"></p></div>
+        <div class="chord-div"><p class="chord-p">5.</p><p class="chord-p" id="chord5"></p></div>
+        <div class="chord-div"><p class="chord-p">6.</p><p class="chord-p" id="chord6"></p></div>
+        <div class="chord-div"><p class="chord-p">7.</p><p class="chord-p" id="chord7"></p></div>
+    </div>
 	
 	
 </body>
